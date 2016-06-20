@@ -1,9 +1,12 @@
+# Quick script to compile/execute individual c++ programs
 
 
+# Grab the last file name
+for last; do true; done
 
-fullname=$(basename "$1")
-ext="${filename##*.}"
-filename="${filename%.*}"
+fullname=$(basename "$last")
+ext="${fullname##*.}"
+filename="${fullname%.*}"
 
-g++ $fullname -o $filename.exe && ./$filename.exe
+g++ $@ -o $filename.exe && ./$filename.exe
 
